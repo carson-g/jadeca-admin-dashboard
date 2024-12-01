@@ -1,7 +1,7 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import './Login.css';  // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,24 +18,28 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-form">
+        <h2 className="login-title">Login</h2>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            className="input-field"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email"
+          />
+          <input
+            type="password"
+            className="input-field"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+          />
+          <button type="submit" className="submit-button">Login</button>
+        </form>
+      </div>
     </div>
   );
 };
