@@ -1,7 +1,7 @@
-// src/components/AdminDashboard.js
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebaseConfig';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import './AdminDashboard.css';  // Import the CSS file
 
 const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
@@ -39,25 +39,30 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Events</h2>
-      <ul>
-        {events.map(event => (
-          <li key={event.id}>
-            {event.name}
-            <button onClick={() => deleteEvent(event.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <h2>Users</h2>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            {user.email}
-            <button onClick={() => deleteUser(user.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h1 className="dashboard-title">Admin Dashboard</h1>
+      </div>
+      <div className="card">
+        <h3 className="card-title">Event Management</h3>
+        <ul className="event-list">
+          {events.map(event => (
+            <li className="list-item" key={event.id}>
+              {event.name}
+              <button onClick={() => deleteEvent(event.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+        <h3 className="card-title">User Management</h3>
+        <ul className="user-list">
+          {users.map(user => (
+            <li className="list-item" key={user.id}>
+              {user.email}
+              <button onClick={() => deleteUser(user.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,109 @@
+/* Admin Dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: tomato;
+}
+
+.card {
+  width: 90%;
+  max-width: 800px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  font-size: 16px;
+  color: #666;
+}
+
+.action-button {
+  padding: 12px 24px;
+  background-color: tomato;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.action-button:hover {
+  background-color: #d14a00;
+}
+
+.alt-action-button {
+  padding: 12px 24px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.alt-action-button:hover {
+  background-color: #444;
+}
+
+.event-list,
+.user-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.list-item button {
+  padding: 8px 16px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-item button:hover {
+  background-color: #d14a00;
+}
