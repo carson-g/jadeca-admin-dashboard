@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../firebaseConfig';
+import { auth, db } from '../firebaseConfig';
+import { signOut } from 'firebase/auth';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
-import './AdminDashboard.css';  // Import the CSS file
+import './AdminDashboard.css';
 
 const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
@@ -38,10 +39,21 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleSignout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
         <h1 className="dashboard-title">Admin Dashboard</h1>
+        <button className="signout-button" onClick={handleSignout}>
+          Sign Out
+        </button>
       </div>
       <div className="card">
         <h3 className="card-title">Event Management</h3>
