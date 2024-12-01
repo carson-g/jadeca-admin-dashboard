@@ -107,6 +107,20 @@
   transition: max-height 0.5s ease-in-out;
 }
 
+.user-check {
+  color: tomato;
+  text-decoration: none;
+  font-weight: bolder;
+  margin: 10px;
+  font-size: 12px;
+  transition: color 0.3s ease;
+}
+
+.user-check:hover {
+  color: #d14a00;
+  text-decoration: underline;
+}
+
 .list-item.expanded .event-details {
   max-height: 500px;
 }
