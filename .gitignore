@@ -22,7 +22,7 @@ dist/
 
 # Static generated files
 out/
-public/
+public/*
 
 # Coverage directory used by tools like istanbul
 coverage/
