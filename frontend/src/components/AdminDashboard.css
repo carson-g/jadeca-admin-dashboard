@@ -44,38 +44,6 @@
   color: #666;
 }
 
-.action-button {
-  padding: 12px 24px;
-  background-color: tomato;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-.action-button:hover {
-  background-color: #d14a00;
-}
-
-.alt-action-button {
-  padding: 12px 24px;
-  background-color: #333;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  border: none;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.alt-action-button:hover {
-  background-color: #444;
-}
-
 .event-list,
 .user-list {
   width: 100%;
@@ -88,12 +56,37 @@
   background-color: #f0f0f0;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   border-radius: 6px;
 }
 
-.list-item button {
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.event-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.details-button {
+  padding: 8px 16px;
+  background-color: #bbb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: #aaa;
+}
+
+.delete-button {
   padding: 8px 16px;
   background-color: tomato;
   color: white;
@@ -103,8 +96,19 @@
   transition: background-color 0.3s ease;
 }
 
-.list-item button:hover {
+.delete-button:hover {
   background-color: #d14a00;
+}
+
+.event-details {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.list-item.expanded .event-details {
+  max-height: 500px;
 }
 
 .signout-button {
