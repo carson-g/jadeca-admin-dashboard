@@ -5,7 +5,7 @@
   },
   "hosting": {
     "site": "jadeca-4261-f0fe8",
-    "public": "public",
+    "public": "frontend/build",
     "ignore": [
       "firebase.json",
       "**/.*",

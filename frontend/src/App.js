@@ -13,7 +13,6 @@ const App = () => {
       setCurrentUser(user);
 
       if (user) {
-        // Check if the user is an admin
         const userDoc = doc(db, 'users', user.uid);
         const userSnapshot = await getDoc(userDoc);
         

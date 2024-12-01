@@ -101,7 +101,12 @@ const AdminDashboard = () => {
           {users.map(user => (
             <li className="list-item" key={user.id}>
               <div className='event-info'>
-                {user.email}
+                <div>
+                  {user.email}
+                  { user.socialMedia &&
+                  <a className='user-check' href={`https://www.instagram.com/${user.socialMedia}/`} target='_blank'>{user.socialMedia} &#10003;</a>
+                  }
+                </div>
                 <button className="delete-button" onClick={() => deleteUser(user.id)}>Delete</button>
               </div>
             </li>
