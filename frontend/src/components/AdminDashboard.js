@@ -8,17 +8,17 @@ const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
   const [users, setUsers] = useState([]);
 
+  const fetchEvents = async () => {
+    const eventsSnapshot = await getDocs(collection(db, 'events'));
+    setEvents(eventsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+  };
+
+  const fetchUsers = async () => {
+    const usersSnapshot = await getDocs(collection(db, 'users'));
+    setUsers(usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+  };
+
   useEffect(() => {
-    const fetchEvents = async () => {
-      const eventsSnapshot = await getDocs(collection(db, 'events'));
-      setEvents(eventsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-    };
-
-    const fetchUsers = async () => {
-      const usersSnapshot = await getDocs(collection(db, 'users'));
-      setUsers(usersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-    };
-
     fetchEvents();
     fetchUsers();
   }, []);
@@ -26,6 +26,7 @@ const AdminDashboard = () => {
   const deleteEvent = async (id) => {
     try {
       await deleteDoc(doc(db, 'events', id));
+      fetchEvents();
     } catch (error) {
       console.error("Error deleting event: ", error);
     }
@@ -34,6 +35,7 @@ const AdminDashboard = () => {
   const deleteUser = async (id) => {
     try {
       await deleteDoc(doc(db, 'users', id));
+      fetchUsers()
     } catch (error) {
       console.error("Error deleting user: ", error);
     }
